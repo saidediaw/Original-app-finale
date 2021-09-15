@@ -1,0 +1,134 @@
+ <div class = 'cars'>
+<h1 class="head">List of car</h1>
+<% if current_user.role == "Client" %>
+ <h3>Number of car available: <%= @cars.where(purchased:false).all.total_count %></h3>
+<% end %>
+
+  <%= search_form_for @search, url: cars_path do |f| %>
+    <div class="field">
+      <a class='search'>
+      <%= f.text_field :price_cont, placeholder: "Search by price", class:"credentials" %>
+      </a>
+      <a class='search'>
+      <%= f.text_field :color_cont, placeholder: "Search by color", class:"credentials" %>
+      </a>
+      <a class='search'>
+      <%= f.text_field :speed_cont, placeholder: "Search by speed", class:"credentials" %>
+      </a>
+    </div>
+    </br>
+    <div class="actions">
+      <%= f.submit "Search", class:"ui red button"%>
+    </div>
+  <% end %>
+
+  <table class="ui red table">
+    <thead>
+      <tr>
+      <% if current_user.role == "Client" %>
+        <th>Car Owner</th>
+      <% end %>
+        <th>Car name</th>
+        <th>Date of manufacturing</th>
+        <% if current_user.role == "Client" %>
+        <th>Color</th>
+        <% end %>
+        <th>speed</th>
+        <th>size</th>
+        <th>Weight</th>
+        <th>Price</th>
+        <th>power</th>
+        <th>age</th>
+        <th>Picture</th>
+        <% if current_user.role == "Owner" %>
+        <th>Status</th>
+        <% end %>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if current_user.role == "Client" %>
+      <% @cars.where(purchased: false).each do |car| %>
+        <tr>
+          <td><%= car.name %></td>
+          <td><%= car.manufactured year %></td>
+          <td><%= car.color %></td>
+          <td><%= car.power %></td>
+          <td><%= car.size %></td>
+          <td><%= car.weight %> Kg</td>
+          <td><%= car.price %> $</td>
+          <% if car.picture.present? %>
+            <td><%= image_tag car.picture.url, style:"width:200px" %></td>
+          <% else %>
+            <td><%= image_tag("no_image.jpg", style:"width:200px" ) %></td>
+          <% end %>
+          <% if not @transaction.present? %>
+            <td><%= link_to 'Purchase', transactions_path(car_id: car.id ), method: :post, data: { confirm: 'Are you sure?' }, class: 'login' %></td>
+          <% end %>
+          <td><%= link_to 'Show', car, class: 'login' %></td>
+        </tr>
+      <% end %>
+      <% end %>
+
+      <% if current_user.role == "Owner" %>
+        <% @cars.each do |car| %>
+
+          <% if current_user.id == car.user_id%>
+          <% if @cars.count > 0 %>
+          <tr>
+            <td><%= car.name %></td>
+            <td><%= car.age %></td>
+
+            <td><%= car.color %></td>
+            <td><%= car.speed %></td>
+            <td><%= car.weight %> Kg</td>
+            <td><%= car.price %> $</td>
+            <td><%= car.size %></td>
+            <td><%= car.delivery %></td>
+            <% if car.picture.present? %>
+              <td><%= image_tag car.picture.url, style:"width:200px" %></td>
+            <% else %>
+              <td><%= image_tag("no_image.jpg", style:"width:200px" ) %></td>z
+            <% end %>
+            <td><%= car.purchased ? 'Sold' : 'Available' %></td>
+            <% if car.purchased == false %>
+            <td><%= link_to 'Show', car, class: 'login' %></td>
+            <td><%= link_to 'Edit', edit_car_path(car), class: 'login' %></td>
+            <td><%= link_to 'Destroy', car, class: 'login', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+          <% else %>
+          <h3 class="message">No car available</h3>
+          <% end %>
+          <% end %>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <h3 class="message">No car available yet</h3>
+<% end %>
+
+</br>
+
+<%= link_to 'Sort by price', cars_path(sort_price: 'true'), class: 'ui blue button inverted'%>
+
+<%= link_to 'Sort by age', cars_path(sort_age: 'true'), class: 'ui red button inverted' %>
+
+
+<% if current_user.role == "Client" %>
+<div class="pagination">
+<%= paginate @cars %>
+</div>
+<% end %>
+
+</br>
+<% if current_user.role == "Owner" %>
+</br>
+<%= link_to 'Add car', new_car_path,class: 'ui orange button' %>
+<% end %>
+</br>
+</br>
+</br>
+</div>

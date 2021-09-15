@@ -1,0 +1,158 @@
+@import 'semantic-ui';
+
+ .home {
+    background: url('car.png');
+    background: asset-url("car.png");
+    margin:0;
+    padding:0 0 0 0;
+    background-size: cover;
+
+}
+  .container{
+    margin-top:230px;
+    text-align: center;
+    font-weight:bold;
+    margin-right: 620px;
+}
+  .signup{
+    padding-top: 80px;
+    text-align: center;
+    font-weight:bold;
+  }
+  .password{
+    padding-top: 150px;
+    text-align: center;
+    font-weight:bold;
+  }
+  .login{
+    color: maroon;
+    font-size: large;
+    font-weight:bold;
+  }
+  .submit {
+    background-color: maroon;
+    color: white;
+    font-size: large;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-self: center;
+  }
+  .user{
+    padding-top: 80px;
+    text-align: center;
+    font-weight:bold;
+  }
+  .head{
+    color: blue;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  .pagination{
+    font-weight: bold;
+    font-size: large;
+  }
+  thead{
+    color: maroon;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+  }
+  tbody{
+    text-align: center;
+  }
+  .message{
+    color: #800000;
+    font-weight: bold;
+    font-size: x-large;
+  }
+  .comment{
+    color: #800000;
+    font-weight: bold;
+    font-style: italic;
+    font-size: medium;
+  }
+  .credentials{
+    width: 200px;
+    padding: 10px;
+    color: white;
+    font-weight:bold;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: rgba(128,0,0,0.4);
+  }
+  header {
+    width: 100%;
+    background-color: grey;
+    height: 60px;
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+    font-weight:bold;
+    padding-top: 20px;
+    top: 0;
+    position:absolute;
+  }
+
+ html {
+   position: relative;
+   min-height: 100%;
+ }
+ footer {
+   width: 100%;
+   height: 20px;
+   color: grey;
+   margin: auto;
+   padding-bottom: 35px;
+   position:fixed;
+   bottom: 0;
+   text-align: center;
+   font-size: x-large;
+   font-weight:bold;
+   background-color: rgba(255, 255, 255,0.3);
+ }
+
+ .nav-bar{
+    height: 50px;
+    background-color: maroon;
+    font-size: large;
+    font-weight:bold;
+    padding: 5px;
+    text-align: right;
+  }
+
+  .sections{
+    padding-top: 70px;
+    width: 80%;
+    padding-left: 120px;
+    text-align: center;
+    font-weight:bold;
+}
+
+.cars{
+  padding-top: 50px;
+  width: 90%;
+  padding-left: 20px;
+  text-align: center;
+  font-weight:bold;
+}
+.new{
+  padding-top: 30px;
+  text-align: center;
+  font-weight:bold;
+}
+.search{
+  padding:10px;
+  text-align:center;
+}
+.flash{
+  color: maroon;
+  background-color: wheat;
+  width: 370px;
+  text-align: center;
+  font-size: medium;
+  font-weight:bold;
+}

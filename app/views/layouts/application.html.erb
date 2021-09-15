@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Advertising car</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('car.png'), :rel => 'icon', :type =>  'image/png' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% if user_signed_in? && current_user.role == 'Client' %>
+    <div class="nav-bar">
+      <a>
+      <%= link_to "Cars", cars_path, class:"ui button" %>
+      </a>
+      <a>
+      <%= link_to "Owner", users_path, class:"ui button" %>
+      </a>
+      <a>
+      <%= link_to "Profile", current_user, class:"ui button" %>
+      </a>
+      <a class="item">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"ui button inverted" %>
+      </a>
+    </div>
+    <% elsif user_signed_in? && current_user.role == 'Owner' %>
+    <div class="nav-bar">
+      <a>
+        <%= link_to "Cars", cars_path, class:"ui button" %>
+      </a>
+      <a>
+        <%= link_to "Profile", current_user, class:"ui button" %>
+      </a>
+      <a>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"ui button inverted" %>
+       </a>
+    </div>
+    <% else %>
+
+    <% end %>
+
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+    <footer>
+      <p> ©2021 powered by Pro2000 Agency Ltd</p>
+    </footer>
+  </body>
+</html>

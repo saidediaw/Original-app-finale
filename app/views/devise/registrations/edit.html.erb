@@ -1,0 +1,28 @@
+<div class="user">
+<h1>Editing <%= resource_name.to_s.humanize %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class:"credentials", autocomplete: "name", required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city, autofocus: true, class:"credentials", required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, class:"credentials", required: true %>
+  </div>
+  </br>
+  <div class="actions">
+    <%= f.submit "Update", class:"submit" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", :back,class: 'login', style: 'color:maroon' %>
+</div>

@@ -1,0 +1,14 @@
+<div class="user">
+<h1 class="head"><%= @user.name %>'s profile page</h1>
+<h3>Email address: <%= @user.email %></h3>
+<h3>City: <%= @user.city %></h3>
+<h3>Phone number: <%= @user.phone %></h3>
+<h3>User type: <%= @user.role %></h3>
+<% if current_user.role == "Owner" %>
+<h3>Number of registered car: <%= @user.cars.count %></h3>
+<h3>Number of car available: <%= @user.cars.where(purchased: false).count %></h3>
+<% end %>
+<%= link_to "Update user information",edit_user_registration_path, class: 'login', style: 'color:maroon'  %>
+<hr>
+<%= link_to 'Check car list', cars_path, style: 'color:maroon' %>
+</div> 

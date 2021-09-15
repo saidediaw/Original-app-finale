@@ -1,0 +1,6 @@
+
+  <% comments.each do |c| %>
+    <% if c.id.present? %>
+      <p class ='comment'><%= c.comment %></p>
+    <% end %>
+  <% end %>

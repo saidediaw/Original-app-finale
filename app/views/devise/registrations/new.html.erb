@@ -1,0 +1,36 @@
+<header>
+  Online Advertising Car
+</header>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class = "signup">
+  <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
+  </br>
+  <div class="field">
+    <%= f.text_field :name, placeholder: "Name", class:"credentials", autofocus: true, autocomplete: "name", required: true %>
+  </div>
+  </br>
+  <div class="field">
+    <%= f.email_field :email, placeholder: "Email", class:"credentials", autofocus: true, autocomplete: "email", required: true %>
+  </div>
+  </br>
+  <div class="field">
+    <%= f.label :role,class: 'login', style: 'color:maroon' %>
+    <%= f.select :role, ["admin", "User"] %>
+  </div>
+  </br>
+  <div class="field">
+    <%= f.password_field :password, placeholder: "Password", class:"credentials", autocomplete: "new-password", required: true %>
+  </div>
+  </br>
+  <div class="field">
+    <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class:"credentials", autocomplete: "new-password", required: true %>
+  </div>
+  </br>
+  <div class="actions">
+    <%= f.submit "Create account", class:"submit" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>

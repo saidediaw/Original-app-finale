@@ -1,0 +1,84 @@
+<div class="new">
+<p id="notice"><%= notice %></p>
+<h1 class="head">Car information</h1>
+
+<h3>Car owner: <%= @car.user.name %></h3>
+
+<h3><%= @car.user.name %>'s phone number: <%= @car.user.phone %></h3>
+
+<h3>Car name:
+  <%= @car.name %>
+</h3>
+
+
+<h3>
+  <Manufactured year:
+  <%= @car.age %>
+</h3>
+
+<h3>
+  Color:
+  <%= @car.color %>
+</h3>
+
+<h3>
+  Power:
+  <%= @car.power %>
+</h3>
+
+<h3>
+  <strong>Size:</strong>
+  <%= @car.size %>
+</h3>
+
+<h3>
+  Weight:
+  <%= @car.weight %> Kg
+</h3>
+
+<h3>
+  Price:
+  <%= @car.price %> $
+</h3>
+
+<h3>
+  Speed:
+  <%= @car.speed %>
+</h3>
+
+<h3>
+  Delivery:
+  <%= @car.delivery %>
+</h3>
+
+<h3>
+  Picture: </br>
+  <% if @car.picture.present? %>
+  <%= image_tag @car.picture.url, style:"width:200px" %>
+  <% else %>
+  <%= image_tag("not_available.jpg", style:"width:150px") %>
+  <% end %>
+</h3>
+
+<h3>
+  List of Comments:
+  <% if @car.comments.count > 0 %>
+  <h4 class='comment'><%= @car.comment %></h4>
+  <% else %>
+  <h4 class='comment'>No comment available</h4>
+  <% end %>
+</h3>
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, car: @car } %>
+</div>
+<% if current_user.role == "Owner" %>
+<%= render partial: 'comments/form', locals: { comment: @comment, car: @car } %>
+
+<%= link_to 'Edit', edit_car_path(@car), class: 'login' %> |
+<% end %>
+<%= link_to 'Back', cars_path, class: 'login' %>
+</br>
+</br>
+</br>
+</div>

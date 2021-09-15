@@ -1,0 +1,45 @@
+<div class = 'sections'>
+<h1 class="head">List of owners</h1>
+<h3>Number of owners available: <%= @users.where(role: 'owner').all.total_count %></h3>
+<%= search_form_for @search do |f| %>
+    <div class="field">
+      <%= f.text_field :city_cont, placeholder: "Search by city", class:"credentials" %>
+    </div>
+    </br>
+    <div class="actions">
+      <%= f.submit "Search", class:"ui red button"%>
+    </div>
+<% end %>
+
+<table class="ui red table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>Number of car available</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.where(role: "Owner").each do |u| %>
+      <tr>
+        <td><%= u.name %></td>
+        <td><%= u.email %></td>
+        <td><%= u.phone %></td>
+        <td><%= u.city %></td>
+        <td><%= u.cars.where(purchased:false).count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pagination">
+<%= paginate @users %>
+</div>
+</br>
+</br>
+
+</div>
