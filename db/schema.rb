@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_165116) do
+ActiveRecord::Schema.define(version: 2021_09_17_093724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
+    t.datetime "age"
     t.string "color"
     t.integer "price"
     t.integer "power"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2021_09_09_165116) do
     t.text "picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "comment"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_165116) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role"
+    t.boolean "admin", default: false
     t.string "name"
     t.string "city"
     t.integer "phone"
@@ -53,5 +56,6 @@ ActiveRecord::Schema.define(version: 2021_09_09_165116) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "users"
   add_foreign_key "comments", "cars"
 end

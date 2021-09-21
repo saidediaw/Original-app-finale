@@ -1,20 +1,20 @@
 <div class='new'>
-<%= form_with(model: @car, url: car_path, local: true) do |form| %>
-  <% if car.errors.any? %>
+<h1 class='head'>Adding a car</h1>
+
+<%= form_with(model: @car, local: true) do |form| %>
+  <% if @car.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
 
       <ul>
-      <% car.errors.full_messages.each do |message| %>
+      <% @car.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :name, "car name" %>
-    <%= form.text_field :name, class:"credentials" %>
+    <%= form.text_field :name,placeholder: "Car name", class:"credentials" %>
   </div>
   </br>
 
@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= form.label :color %>
-    <%= form.select :color, ['White', 'Black', 'Brown&White', 'Other'] %>
+    <%= form.select :color, ['Blue', 'Black', 'White', 'Other'] %>
   </div>
 
   <div class="field">
@@ -40,26 +40,22 @@
   </br>
 
   <div class="field">
-    <%= form.label :weight %>
-    <%= form.number_field :weight, class:"credentials" %> Kg
+    <%= form.number_field :weight, placeholder: "Weight", class:"credentials" %> Kg
   </div>
   </br>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, placeholder: "Price", class:"credentials" %> $
+    <%= form.number_field :price,placeholder: "Price", class:"credentials" %> $
   </div>
   </br>
 
   <div class="field">
-    <%= form.label :, "power" %>
-    <%= form.text_field :power, class:"credentials" %>
+    <%= form.text_field :speed, placeholder: "speed", class:"credentials" %>
   </div>
   </br>
 
   <div class="field">
-    <%= form.label :speed %>
-    <%= form.select :speed, %>
+    <%= form.text_field :power, placeholder: "power", class:"credentials" %>
   </div>
   </br>
 
@@ -69,7 +65,6 @@
     <%= form.file_field :picture %>
   </div>
   </br>
-
   <div class="field">
     <%= form.text_area :comment, placeholder: "Add comment", rows: 4 %>
   </div>
@@ -78,4 +73,9 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', cars_path, style: 'color:maroon' %>
+</br>
+</br>
+<
 </div>

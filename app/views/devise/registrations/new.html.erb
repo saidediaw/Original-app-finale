@@ -14,10 +14,7 @@
     <%= f.email_field :email, placeholder: "Email", class:"credentials", autofocus: true, autocomplete: "email", required: true %>
   </div>
   </br>
-  <div class="field">
-    <%= f.label :role,class: 'login', style: 'color:maroon' %>
-    <%= f.select :role, ["admin", "User"] %>
-  </div>
+  
   </br>
   <div class="field">
     <%= f.password_field :password, placeholder: "Password", class:"credentials", autocomplete: "new-password", required: true %>

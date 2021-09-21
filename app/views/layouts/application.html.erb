@@ -11,13 +11,13 @@
 
   <body>
 
-    <% if user_signed_in? && current_user.role == 'Client' %>
+    <% if user_signed_in?  %>
     <div class="nav-bar">
       <a>
       <%= link_to "Cars", cars_path, class:"ui button" %>
       </a>
       <a>
-      <%= link_to "Owner", users_path, class:"ui button" %>
+      <%= link_to "admin", users_path, class:"ui button" %>
       </a>
       <a>
       <%= link_to "Profile", current_user, class:"ui button" %>
@@ -26,11 +26,15 @@
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"ui button inverted" %>
       </a>
     </div>
-    <% elsif user_signed_in? && current_user.role == 'Owner' %>
+    <% elsif user_signed_in?  %>
     <div class="nav-bar">
       <a>
         <%= link_to "Cars", cars_path, class:"ui button" %>
       </a>
+
+        <%= link_to "About us", pages_path, class:"ui button" %>
+      </a>
+
       <a>
         <%= link_to "Profile", current_user, class:"ui button" %>
       </a>

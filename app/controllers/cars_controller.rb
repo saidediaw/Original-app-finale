@@ -2,19 +2,12 @@ class CarsController < ApplicationController
     before_action :set_car, only: [:show, :edit, :update, :destroy]
 
     def index
-        if current_user.role == "Client"
-            @search = Car.ransack(params[:q])
-            if params[:q]
-            @cars = @search.result.page(params[:page])
-            elsif params[:sort_price]
-            @cars = Car.all.order('price').page(params[:page])
-            elsif params[:sort_age]
-            @cars = Car.all.order('age DESC').page(params[:page])
-            else
-            @cars = Car.all.order('created_at DESC').page(params[:page])
-            end
-        end
-        if current_user.role == "Owner"
+
+      @cars = if params[:term]
+  Car.where('name LIKE ?', "%#{params[:term]}%")
+else
+  @cars = Car.all
+end
             @search = Car.ransack(params[:q])
             if params[:q]
             @cars = @search.result
@@ -22,25 +15,18 @@ class CarsController < ApplicationController
             @cars = Car.all.order('price')
             elsif params[:sort_age]
             @cars = Car.all.order('age DESC')
-            else
-            @cars = Car.all.order('purchased')
-            end
         end
     end
 
     def new
         @car = Car.new
-        if current_user.role == "Client"
             flash[:notice] = "Sorry only admin can add car"
             redirect_to cars_path
-        end
     end
 
     def edit
-        if current_user.role == "Client"
             flash[:notice] = "Sorry only car owners can edit their car information"
             redirect_to cars_path
-        end
     end
 
     def show
@@ -53,7 +39,7 @@ class CarsController < ApplicationController
         @car = Car.new(car_params)
         @car.user_id = current_user.id
         if @car.save
-          redirect_to cars_path
+          redirect_to cars_path, notice: 'Car is successfully registred.'
         else
           render :new
         end
@@ -61,7 +47,7 @@ class CarsController < ApplicationController
 
     def update
         if @car.update(car_params)
-            redirect_to @car
+            redirect_to @car, notice: 'Car is successfully updated.'
         else
           render :edit
         end
@@ -69,7 +55,7 @@ class CarsController < ApplicationController
 
     def destroy
        @car.destroy
-       redirect_to cars_path
+       redirect_to cars_path, notice: 'Car is successfully deleted.'
     end
 
     private
@@ -78,6 +64,6 @@ class CarsController < ApplicationController
     end
 
     def car_params
-        params.require(:car).permit(:name, :age, :color, :name, :size, :weight, :price, :speed, :user_id,:picture, :comment)
+        params.require(:car).permit(:name, :age, :color, :name, :size, :weight, :price, :speed, :power,:picture, :comment)
     end
 end

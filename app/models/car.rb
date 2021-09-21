@@ -8,5 +8,12 @@ class Car < ApplicationRecord
   validates :age, presence: true
 
   has_many :comments, dependent: :destroy
+  def self.search(term)
+    if term
+      where('name LIKE ?', "%#{term}%")
+    else
+      order('id desc')
+    end
+  end
 # @search = Car.search(params[:q])
 end

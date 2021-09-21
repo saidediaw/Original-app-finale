@@ -46,10 +46,6 @@
   <%= @car.speed %>
 </h3>
 
-<h3>
-  Delivery:
-  <%= @car.delivery %>
-</h3>
 
 <h3>
   Picture: </br>
@@ -72,11 +68,9 @@
 <div id="comments_area">
   <%= render partial: 'comments/index', locals: { comments: @comments, car: @car } %>
 </div>
-<% if current_user.role == "Owner" %>
 <%= render partial: 'comments/form', locals: { comment: @comment, car: @car } %>
 
 <%= link_to 'Edit', edit_car_path(@car), class: 'login' %> |
-<% end %>
 <%= link_to 'Back', cars_path, class: 'login' %>
 </br>
 </br>

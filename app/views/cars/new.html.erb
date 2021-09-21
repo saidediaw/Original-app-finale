@@ -55,9 +55,9 @@
   </br>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.select :, ['manufactured year] %>
+    <%= form.text_field :power, placeholder: "power", class:"credentials" %>
   </div>
+  </br>
 
   <div class="field">
     <%= form.label :picture %>
@@ -67,6 +67,10 @@
   </br>
   <div class="field">
     <%= form.text_area :comment, placeholder: "Add comment", rows: 4 %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :favorite, placeholder: "Like comment", rows: 4 %>
   </div>
 
   <div class="actions">

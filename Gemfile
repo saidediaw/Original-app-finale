@@ -52,6 +52,7 @@ gem 'faker'
 gem 'semantic-ui-sass'
 
 gem 'ransack'
+gem 'rails_admin'
 
 
 gem 'kaminari'

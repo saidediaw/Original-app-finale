@@ -1,2 +1,3 @@
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.sheep.comments, sheep: @comment.sheep }) %>")
-$("textarea").val('')
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.car.comments, car: @comment.car }) %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");

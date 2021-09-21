@@ -1,4 +1,4 @@
-
+This description will be the comment input field displayed on the show screen of the blog.
 <%= form_with(model: [car, comment]) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +11,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= form.text_area :comment, placeholder: "Add comment", rows: 3 %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+      <%= form.label :comment %>
+      <%= form.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>

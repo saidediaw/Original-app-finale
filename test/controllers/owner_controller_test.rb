@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ShepherdControllerTest < ActionDispatch::IntegrationTest
+class OwnerControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
