@@ -32932,3 +32932,347 @@ Processing by RailsAdmin::MainController#index as HTML
 Completed 200 OK in 39ms (Views: 33.7ms | ActiveRecord: 1.2ms | Allocations: 18783)
 
 
+Started DELETE "/users/sign_out" for ::1 at 2021-09-22 01:13:29 +0900
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AQOs+BWodj0/ugRLvG5hHsaxiFjTk/KUSclzPE6MiLQqt49nEHkVWWXdm/5o7zbCFV+IPMdBT4bVwh3MdvvoJA=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 625ms (ActiveRecord: 6.1ms | Allocations: 355306)
+
+
+Started GET "/" for ::1 at 2021-09-22 01:13:30 +0900
+Processing by CarsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 618)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-22 01:13:30 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from _app_views_devise_sessions_new_html_erb__3952382233526628491_27720 at /Users/diaw/Desktop/Original-app/app/views/devise/sessions/new.html.erb:6)
+  Rendered devise/shared/_links.html.erb (Duration: 2.4ms | Allocations: 709)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.4ms | Allocations: 2745)
+  Rendered layout layouts/application.html.erb (Duration: 622.2ms | Allocations: 84503)
+Completed 200 OK in 640ms (Views: 637.7ms | ActiveRecord: 0.0ms | Allocations: 88577)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-09-22 01:14:30 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9AnSv6k1XEMye2uGkTtcFr75VsHwT8PH0GLztumfNL6pg483JZ/FwnwejdvULfL8cVMcuQqp8Jm9HXi8T6lg7w==", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 308ms (ActiveRecord: 0.5ms | Allocations: 8359)
+
+
+Started GET "/" for ::1 at 2021-09-22 01:14:30 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 26.7ms | Allocations: 8723)
+  Rendered layout layouts/application.html.erb (Duration: 53.8ms | Allocations: 21161)
+Completed 200 OK in 75ms (Views: 52.7ms | ActiveRecord: 5.4ms | Allocations: 27861)
+
+
+Started GET "/users" for ::1 at 2021-09-22 01:14:44 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms | Allocations: 5147)
+
+
+  
+NoMethodError (undefined method `role' for #<User id: 1, email: "admin@gmail.com", created_at: "2021-09-20 23:10:40.961702000 +0900", updated_at: "2021-09-20 23:10:40.961702000 +0900", admin: true, name: "Admin", city: nil, phone: nil>):
+  
+app/controllers/users_controller.rb:11:in `index'
+Started GET "/users" for ::1 at 2021-09-22 01:16:40 +0900
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 4836)
+
+
+  
+NoMethodError (undefined method `role' for #<User id: 1, email: "admin@gmail.com", created_at: "2021-09-20 23:10:40.961702000 +0900", updated_at: "2021-09-20 23:10:40.961702000 +0900", admin: true, name: "Admin", city: nil, phone: nil>):
+  
+app/controllers/users_controller.rb:11:in `index'
+Started GET "/" for ::1 at 2021-09-22 01:16:51 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1969)
+  Rendered layout layouts/application.html.erb (Duration: 43.9ms | Allocations: 19367)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.8ms | Allocations: 22333)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_users_path' for #<ActionView::Base:0x0000000000e7e0>
+Did you mean?  edit_user_path):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_users_path, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/" for ::1 at 2021-09-22 01:16:55 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1219)
+  Rendered layout layouts/application.html.erb (Duration: 44.5ms | Allocations: 17905)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 1.2ms | Allocations: 19671)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_users_path' for #<ActionView::Base:0x0000000000eab0>
+Did you mean?  edit_user_path):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_users_path, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/" for ::1 at 2021-09-22 01:17:47 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1970)
+  Rendered layout layouts/application.html.erb (Duration: 45.0ms | Allocations: 19382)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.6ms | Allocations: 22334)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_path' for #<ActionView::Base:0x0000000000ee48>
+Did you mean?  audio_path):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_path, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/users/sign_in" for ::1 at 2021-09-22 01:17:54 +0900
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1620)
+
+
+Started GET "/" for ::1 at 2021-09-22 01:18:04 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1218)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 17894)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.5ms | Allocations: 19571)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_path' for #<ActionView::Base:0x0000000000f258>
+Did you mean?  audio_path):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_path, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/admin" for ::1 at 2021-09-22 01:19:31 +0900
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ config/initializers/rails_admin.rb:3:in `block (2 levels) in <main>'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars"[0m
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" ORDER BY "cars"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (Duration: 26.0ms | Allocations: 16394)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_head.html.haml (Duration: 76.8ms | Allocations: 37150)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_secondary_navigation.html.haml (Duration: 6.4ms | Allocations: 4424)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_navigation.html.haml (Duration: 16.7ms | Allocations: 10032)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (Duration: 5.2ms | Allocations: 3296)
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml (Duration: 6.9ms | Allocations: 5166)
+  Rendered layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml (Duration: 144.5ms | Allocations: 79590)
+Completed 200 OK in 476ms (Views: 147.4ms | ActiveRecord: 7.9ms | Allocations: 233282)
+
+
+Started GET "/" for ::1 at 2021-09-22 01:21:23 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1972)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 19369)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.8ms | Allocations: 22585)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `admin_url' for #<ActionView::Base:0x000000000107c0>
+Did you mean?  audio_url):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_url, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/" for ::1 at 2021-09-22 01:26:15 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 22.3ms | Allocations: 8257)
+  Rendered layout layouts/application.html.erb (Duration: 49.4ms | Allocations: 22242)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 7.4ms | Allocations: 34823)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"admin"}, missing required keys: [:id]
+Did you mean?  admin_url
+               admin_index_url
+               admin_index_path
+               rails_admin_url):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_path, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/" for ::1 at 2021-09-22 01:27:04 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1970)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 15962)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.0ms | Allocations: 19101)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"admin"}, missing required keys: [:id]
+Did you mean?  admin_path
+               admin_index_url
+               admin_index_path
+               rails_admin_url):
+    17:       <%= link_to "Cars", cars_path, class:"ui button" %>
+    18:       </a>
+    19:       <a>
+    20:       <%= link_to "admin", admin_url, class:"ui button" %>
+    21:       </a>
+    22:       <a>
+    23:       <%= link_to "Profile", current_user, class:"ui button" %>
+  
+app/views/layouts/application.html.erb:20
+Started GET "/" for ::1 at 2021-09-22 01:28:00 +0900
+Processing by CarsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering cars/index.html.erb within layouts/application
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/views/cars/index.html.erb:24
+  Rendered cars/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1969)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 14992)
+Completed 200 OK in 44ms (Views: 35.8ms | ActiveRecord: 0.6ms | Allocations: 18160)
+
+
+Started GET "/admin" for ::1 at 2021-09-22 01:28:06 +0900
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ config/initializers/rails_admin.rb:3:in `block (2 levels) in <main>'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars"[0m
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" ORDER BY "cars"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (Duration: 18.8ms | Allocations: 14025)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_head.html.haml (Duration: 75.7ms | Allocations: 34740)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_secondary_navigation.html.haml (Duration: 5.8ms | Allocations: 4332)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_navigation.html.haml (Duration: 14.4ms | Allocations: 9907)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (Duration: 7.2ms | Allocations: 3253)
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml (Duration: 9.4ms | Allocations: 5113)
+  Rendered layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml (Duration: 139.3ms | Allocations: 74536)
+Completed 200 OK in 186ms (Views: 142.5ms | ActiveRecord: 6.7ms | Allocations: 86733)
+
+
+Started GET "/admin" for ::1 at 2021-09-22 01:28:06 +0900
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ config/initializers/rails_admin.rb:3:in `block (2 levels) in <main>'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cars"[0m
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" ORDER BY "cars"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (Duration: 6.2ms | Allocations: 3608)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_head.html.haml (Duration: 67.6ms | Allocations: 29146)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_secondary_navigation.html.haml (Duration: 2.3ms | Allocations: 765)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_navigation.html.haml (Duration: 2.9ms | Allocations: 949)
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (Duration: 2.2ms | Allocations: 1143)
+  Rendering /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/pjax.html.haml (Duration: 8.3ms | Allocations: 535)
+  Rendered layout /Users/diaw/.rbenv/versions/3.0.1/lib/ruby/gems/3.0.0/gems/rails_admin-2.2.1/app/views/layouts/rails_admin/application.html.haml (Duration: 89.5ms | Allocations: 35964)
+Completed 200 OK in 106ms (Views: 90.4ms | ActiveRecord: 1.8ms | Allocations: 43670)
+
+

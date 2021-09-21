@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   patch 'cars', to: 'cars#update'
 resources :cars
 resources :aboutus
+resources :admin
 end
