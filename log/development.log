@@ -35072,3 +35072,36 @@ from devise to your `app/views` folder. Alternatively, you can run
 Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.0ms | Allocations: 14236)
 
 
+Started GET "/" for ::1 at 2021-09-23 00:29:35 +0900
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CarsController#index as HTML
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.0ms | Allocations: 2851)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-23 00:29:36 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+DEPRECATION WARNING: [Devise] `DeviseHelper#devise_error_messages!` is deprecated and will be
+removed in the next major version.
+
+Devise now uses a partial under "devise/shared/error_messages" to display
+error messages by default, and make them easier to customize. Update your
+views changing calls from:
+
+    <%= devise_error_messages! %>
+
+to:
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+To start customizing how errors are displayed, you can copy the partial
+from devise to your `app/views` folder. Alternatively, you can run
+`rails g devise:views` which will copy all of them again to your app.
+ (called from _app_views_devise_sessions_new_html_erb__4096235879670929006_28040 at /Users/diaw/Desktop/Original-app/app/views/devise/sessions/new.html.erb:6)
+  Rendered devise/shared/_links.html.erb (Duration: 1.9ms | Allocations: 696)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 3646)
+  Rendered layout layouts/application.html.erb (Duration: 389.4ms | Allocations: 85461)
+Completed 200 OK in 431ms (Views: 408.2ms | ActiveRecord: 5.4ms | Allocations: 96764)
+
+
