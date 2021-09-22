@@ -37,6 +37,28 @@ Connecting car owner/cars and prospective users.
 
 https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit?usp=sharing
 
+
+Catalog design :
+
+https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit#gid=0
+
+ER Diagram :
+
+https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit#gid=968246633
+
+Table Definition :
+
+https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit#gid=1435240077
+
+Screen transition diagram:
+
+https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit#gid=876250730
+
+
+Wire frame :
+
+https://docs.google.com/spreadsheets/d/19NtQP4_yT6UbvAh3wAhFjO35qZG6HhAc_9ONcwTo7Eg/edit#gid=1186285053
+
 ## Scheduled to use Gems
 * rspec-rails
 * ransack
