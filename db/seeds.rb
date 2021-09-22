@@ -18,6 +18,24 @@
 # User.create(name: "Saqr", city: "Saint Louis", phone: '774561234', role: 'Owner', email: "saqr@gmail.com", password: "saqr210", password_confirmation: "saqr210")
 # User.create(name: "Talha", city: "Dakar", phone: '709871234', role: 'Owner', email: "talha@gmail.com", password: "talha210", password_confirmation: "talha210")
 # User.create(name: "Zubayr", city: "Saint Louis", phone: '770345678', role: 'Owner', email: "zubayr@gmail.com", password: "zubayr210", password_confirmation: "zubayr210")
+
+User.create!(name: 'GuestUser1',
+             email: 'guest1234@example.com',
+             password: '12345678',
+             password_confirmation: '12345678',
+             created_at: Time.zone.now,
+             updated_at: Time.zone.now,
+             admin: true)
+
+User.create!(name: 'Guest UserAdmin',
+             email: 'guestadmin@example.com',
+             password: '12345678',
+             password_confirmation: '12345678',
+             created_at: Time.zone.now,
+             updated_at: Time.zone.now,
+             admin: true)
+
+
 User.create!(name: 'Guest User',
              email: 'gues1t@example.com',
              password: '12345678',
