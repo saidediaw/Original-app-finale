@@ -11,24 +11,25 @@
 
   <body>
 
-      <% if user_signed_in?  %>
-      <div class="nav-bar">
+     <% if user_signed_in? && current_user.admin %>
+    <div class="nav-bar">
       <a>
       <%= link_to "Cars", cars_path, class:"ui button" %>
       </a>
       </a>
-      <%= link_to "About us", pages_path, class:"ui button" %>
+
+        <%= link_to "About us", pages_path, class:"ui button" %>
       </a>
       <a>
       <%= link_to "admin", admin_index_path, class:"ui button" %>
       </a>
-       <a>
-       <%= link_to "Profile", current_user, class:"ui button" %>
-       </a>
-       <a class="item">
-       <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"ui button inverted" %>
-       </a>
-       </div>
+      <a>
+      <%= link_to "Profile", current_user, class:"ui button" %>
+      </a>
+      <a class="item">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"ui button inverted" %>
+      </a>
+    </div>
     <% elsif user_signed_in?  %>
     <div class="nav-bar">
       <a>
