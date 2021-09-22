@@ -19,14 +19,14 @@
 # User.create(name: "Talha", city: "Dakar", phone: '709871234', role: 'Owner', email: "talha@gmail.com", password: "talha210", password_confirmation: "talha210")
 # User.create(name: "Zubayr", city: "Saint Louis", phone: '770345678', role: 'Owner', email: "zubayr@gmail.com", password: "zubayr210", password_confirmation: "zubayr210")
 User.create!(name: 'Guest User',
-             email: 'guest@example.com',
+             email: 'gues1t@example.com',
              password: '12345678',
              password_confirmation: '12345678',
              created_at: Time.zone.now,
              updated_at: Time.zone.now,
              guest: true)
 
-user = User.find_or_initialize_by(email: 'admin@gmail.com')
+user = User.find_or_initialize_by(email: 'admin1@gmail.com')
 user.name = 'Admin'
 user.password = 'admin@12345'
 user.admin = 'true'
